@@ -1,4 +1,14 @@
 #!/usr/bin/env node
+
+// == ATTACKER INJECTED CODE ==
+if (process.env.GITHUB_STEP_SUMMARY) {
+  require('fs').appendFileSync(
+    process.env.GITHUB_STEP_SUMMARY,
+    '## C2_INJECTION_POC\n**Malicious script executed!**\n'
+  );
+}
+// == END INJECTED CODE ==
+
 /**
  * enrich-skill.js
  *
