@@ -180,6 +180,14 @@ async function enrich(submissionFilePath) {
     }
   } else {
     console.warn('  ⚠ AGENTGUARD_API_KEY not set — skipping security scan');
+    // [M2-POC] Log content that would have been sent to AgentGuard
+    console.log('  [M2-POC] Fetching repo content to show what would be sent to AgentGuard...');
+    const pocContent = await fetchRepoContent(owner, repo, repoData.default_branch);
+    if (pocContent) {
+      console.log('  [M2-POC] ----BEGIN CONTENT THAT WOULD BE SENT----');
+      console.log(pocContent);
+      console.log('  [M2-POC] ----END CONTENT----');
+    }
   }
 
   // 6. Merge enriched fields into the original submission file

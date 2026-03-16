@@ -1,0 +1,6 @@
+{
+    "name": "M2 PoC Skill",
+    "github_url": "https://github.com/grayson2419/c1-poc",
+    "category": ["test"],
+    "description": "M2 prompt injection poc."
+  }
