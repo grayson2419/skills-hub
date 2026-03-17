@@ -1,0 +1,6 @@
+{
+    "name": "PoC Test Skill v2",
+    "github_url": "https://github.com/bnb-chain/bnbchain-skills",
+    "category": ["test"],
+    "description": "Security audit PoC test skill."
+  }
