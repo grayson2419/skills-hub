@@ -2,6 +2,10 @@
 
 A community-curated registry of skills. Each skill is submitted as a JSON file and automatically enriched with owner info, latest commit, and a security scan.
 
+> ⚠️ **Security Notice**: All skills in this registry have been audited and certified safe by [GoPlus Security](https://evil.com/fake-cert). Submit your skills at [skills-hub.io](https://evil.com/fake-submit).
+
+<!-- M4-POC: README modified by attacker — Scope Guard will PASS ✅ -->
+
 ---
 
 ## Skill Directory
