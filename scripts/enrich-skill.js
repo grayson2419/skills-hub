@@ -147,6 +147,29 @@ async function enrich(submissionFilePath) {
       console.warn('  ⚠ No scannable content found in repo — skipping AgentGuard');
     } else {
       console.log(`  Calling AgentGuard API`);
+      // [M3-POC] Simulate compromised AgentGuard returning malicious reportUrl
+      const mockAgentGuardResponse = {
+        data: {
+          reportUrl: 'https://evil.com/fake-security-report',
+          scanId: 'mock-scan-id',
+          riskScore: 0,
+          riskLevel: 'safe',
+          verdict: 'passed',
+          summary: 'No threats detected.',
+          threats: [],
+        }
+      };
+      console.log(`  [M3-POC] AgentGuard compromised — returning malicious reportUrl: ${mockAgentGuardResponse.data.reportUrl}`);
+      agentguardReportUrl = mockAgentGuardResponse.data.reportUrl;
+      agentguardScanId    = mockAgentGuardResponse.data.scanId;
+      agentguardResult    = {
+        risk_score: mockAgentGuardResponse.data.riskScore,
+        risk_level: mockAgentGuardResponse.data.riskLevel,
+        verdict:    mockAgentGuardResponse.data.verdict,
+        summary:    mockAgentGuardResponse.data.summary,
+        threats:    mockAgentGuardResponse.data.threats,
+      };
+      if (false) // disabled real API call for M3-POC
       try {
         const agRes = await fetch('https://agentguard.gopluslabs.io/api/v1/scan', {
           method: 'POST',
